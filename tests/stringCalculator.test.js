@@ -16,4 +16,10 @@ describe("Test cases for string calculator", () => {
     expect(add("2,4,6,8")).toBe(20);
     expect(add("5,10,15,20,25")).toBe(75);
   });
+
+  it("should handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
+    expect(add("1\n2\n3")).toBe(6);
+    expect(add("1,2\n3,4\n5,6,7")).toBe(28);
+  });
 });
