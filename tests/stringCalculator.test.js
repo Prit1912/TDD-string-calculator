@@ -60,4 +60,10 @@ describe("Test cases for string calculator", () => {
     expect(strCalculator.add("//[;;;]\n1;;;2;;;3")).toBe(6);
     expect(strCalculator.add("//[,,,]\n10,,,20,,,30")).toBe(60);
   });
+
+  test("should handle multiple delimiters", () => {
+    expect(strCalculator.add("//[;][,]\n1;2,3")).toBe(6); // multiple delimiters
+    expect(strCalculator.add("//[;;][,,]\n1;;2,,3")).toBe(6); // delimiters of varying lengths
+    expect(strCalculator.add("//[;;][,,]\n2;;3,,4")).toBe(9); // using semicolon and ampersand as delimiters
+  });
 });
