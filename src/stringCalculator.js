@@ -9,6 +9,7 @@ function add(numberString) {
   2. multiple number input separated by comma 
   3. handle new line in input string
   4. handle differnt custom delimeters
+  5. handle negative number
   */
   let delimiter = /[\n,]/; // Default delimiter
   if (numberString.startsWith("//")) {
@@ -19,6 +20,13 @@ function add(numberString) {
   }
 
   let numArray = numberString.split(delimiter);
+
+  // check for negative numbers
+  let negativeNumbers = numArray.filter((num) => parseInt(num) < 0);
+  if (negativeNumbers?.length) {
+    throw new Error(`Negative numbers not allowed`);
+  }
+
   return numArray.reduce((sum, num) => sum + parseInt(num), 0);
 }
 
