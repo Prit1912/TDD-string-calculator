@@ -22,4 +22,9 @@ describe("Test cases for string calculator", () => {
     expect(add("1\n2\n3")).toBe(6);
     expect(add("1,2\n3,4\n5,6,7")).toBe(28);
   });
+
+  it("should handle custom delimiters starting with //", () => {
+    expect(add("//;\n1;2")).toBe(3);
+    expect(add("//|\n1|2|3")).toBe(6);
+  });
 });
