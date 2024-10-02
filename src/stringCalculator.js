@@ -24,7 +24,9 @@ function add(numberString) {
   // check for negative numbers
   let negativeNumbers = numArray.filter((num) => parseInt(num) < 0);
   if (negativeNumbers?.length) {
-    throw new Error(`Negative numbers not allowed`);
+    throw new Error(
+      `Negative numbers not allowed: ${negativeNumbers.join(",")}`
+    );
   }
 
   return numArray.reduce((sum, num) => sum + parseInt(num), 0);

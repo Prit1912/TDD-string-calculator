@@ -29,7 +29,9 @@ describe("Test cases for string calculator", () => {
   });
 
   it("should handle negative numbers", () => {
-    expect(() => add("//;\n1;-2")).toThrow("Negative numbers not allowed");
-    expect(() => add("//|\n1|-2|-3")).toThrow("Negative numbers not allowed");
+    expect(() => add("//;\n1;-2")).toThrow("Negative numbers not allowed: -2");
+    expect(() => add("//|\n1|-2|-3")).toThrow(
+      "Negative numbers not allowed: -2,-3"
+    );
   });
 });
