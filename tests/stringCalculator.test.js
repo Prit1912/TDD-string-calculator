@@ -55,4 +55,9 @@ describe("Test cases for string calculator", () => {
     expect(strCalculator.add("1001,2,3")).toBe(5);
     expect(strCalculator.add("//;\n1001;2;3")).toBe(5);
   });
+
+  test("should handle delimiters of any length", () => {
+    expect(strCalculator.add("//[;;;]\n1;;;2;;;3")).toBe(6);
+    expect(strCalculator.add("//[,,,]\n10,,,20,,,30")).toBe(60);
+  });
 });

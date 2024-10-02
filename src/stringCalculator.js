@@ -21,17 +21,27 @@ class StringCalculator {
     5. handle negative number
     6. get how many times add function was called
     7. number greater than 1000 should be ingore
+    8. handle delimeter of any length
     */
 
     let delimiter = /[\n,]/; // Default delimiter
     if (numberString.startsWith("//")) {
       const parts = numberString.split("\n");
       // Extract custom delimiter which is after //
-      delimiter = new RegExp(`[${parts[0][2]}]`);
+
+      const newDelimiter = parts[0].slice(2);
+
+      if (newDelimiter.startsWith("[") && newDelimiter.endsWith("]")) {
+        delimiter = new RegExp(`${newDelimiter.slice(1, -1)}`);
+      } else {
+        delimiter = new RegExp(`[${newDelimiter}]`);
+      }
+
       numberString = parts[1];
     }
 
     let numArray = numberString.split(delimiter);
+    console.log(numArray);
 
     // check for negative numbers
     let negativeNumbers = numArray.filter((num) => parseInt(num) < 0);
