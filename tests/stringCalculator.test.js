@@ -50,4 +50,9 @@ describe("Test cases for string calculator", () => {
     strCalculator.add("3,4");
     expect(strCalculator.getAddFunctionCalledCount()).toBe(2); // Two calls, should be 2
   });
+
+  test("should ignore number greater than 1000", () => {
+    expect(strCalculator.add("1001,2,3")).toBe(5);
+    expect(strCalculator.add("//;\n1001;2;3")).toBe(5);
+  });
 });

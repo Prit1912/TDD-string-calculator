@@ -20,6 +20,7 @@ class StringCalculator {
     4. handle differnt custom delimeters
     5. handle negative number
     6. get how many times add function was called
+    7. number greater than 1000 should be ingore
     */
 
     let delimiter = /[\n,]/; // Default delimiter
@@ -39,6 +40,8 @@ class StringCalculator {
         `Negative numbers not allowed: ${negativeNumbers.join(",")}`
       );
     }
+
+    numArray = numArray.filter((num) => parseInt(num) <= 1000);
 
     return numArray.reduce((sum, num) => sum + parseInt(num), 0);
   }
