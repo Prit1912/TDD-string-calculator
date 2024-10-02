@@ -4,13 +4,12 @@ function add(numberString) {
     return 0;
   }
 
-  // check for single number input
-  if (numberString?.length === 1) {
-    if (!isNaN(parseInt(numberString))) {
-      return parseInt(numberString);
-    }
-    return 0;
-  }
+  // check for numtple number input separated by comma
+  const numArray = numberString.split(",");
+  const numSum = numArray.reduce((acc, curr) => {
+    return acc + parseInt(curr);
+  }, 0);
+  return numSum;
 }
 
 module.exports = { add };
